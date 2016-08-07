@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> UNIX Tutorial Two </title>
+<link href="unixtut1.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995; Garrett Dancik, 2015" />
+</head>
+<body>
+<h1>UNIX Tutorial Two </h1>
+<h2>2.1 Copying Files</h2>
+<h3>cp (copy)</h3>
+<p> <samp>cp <var>file1 file2</var></samp> is the command which makes a copy of 
+  <strong>file1</strong> in the current working directory and calls it <strong>file2</strong> 
+</p>
+<p> What we are going to do now, is to take a file stored in an open access area 
+  of the file system, and use the <samp>cp</samp> command to copy it to your unixstuff 
+  directory. </p>
+<p> First, <samp>cd</samp> to your unixstuff directory.</p>
+<p class="command"> $ cd ~/unixstuff</p>
+<p> Then at the UNIX prompt, type, </p>
+<p class="command"> $ cp /home/training/training_materials/developer/data/shakespeare/poems . </p>
+<p> (Note: Don't forget the dot (<samp>.</samp>) at the end. Remember, in UNIX 
+  the dot means the current directory.) </p>
+<p> The above command means copy the file <strong> poems</strong> to the 
+  current directory, keeping the name the same. </p>
+<h3>Exercise 2a</h3>
+<p>Create a backup of your <strong>poems</strong> file by copying it to a file called <strong>poems.bak</strong> </p>
+<h2>2.2 Moving files</h2>
+<h3>mv (move)</h3>
+<p><samp>mv <var>file1 file2</var></samp> moves (or renames) <strong>file1</strong> 
+  to <strong>file2</strong> </p>
+<p> To move a file from one place to another, use the <samp>mv</samp> command. 
+  This has the effect of moving rather than copying the file, so you end up with 
+  only one file rather than two. </p>
+<p> It can also be used to rename a file, by moving the file to the same directory, 
+  but giving it a different name. </p>
+<p> We are now going to move the file poems.bak to your backup directory. </p>
+<p>First, change directories to your unixstuff directory if you are not already there. 
+  Then, inside the unixstuff directory, type</p>
+<p class="command"> $ mv poems.bak backups/</p>
+<p> Type <samp>ls</samp> and <samp>ls backups</samp> to see if it has worked. 
+</p>
+<p> The file <i>poems</i> is a simple text file, but does not have an extension. Let's make its file type explicit by renaming the file poems.txt, by typing </p>
+<p class="command"> $ mv poems poems.txt</p>
+<p> Type <samp>ls</samp> to see if it has worked. 
+<h2>2.3 Removing files and directories </h2>
+<h3>rm (remove), rmdir (remove directory)</h3>
+<p>To delete (remove) a file, use the <samp>rm</samp> command. As an example, 
+  we are going to create a copy of the <strong>poems.txt</strong> file then 
+  delete it. </p>
+<p> Inside your <strong>unixstuff</strong> directory, type</p>
+<p class="command"> $ cp poems.txt tempfile.txt<br />
+  $ ls (to check if it has created the file)<br />
+  $ rm tempfile.txt<br />
+  $ ls (to check if it has deleted the file) </p>
+<p> You can use the <samp>rmdir</samp> command to remove a directory (but only if 
+  it is empty first). Try to remove the <strong>backups</strong> directory. You 
+  will not be able to since UNIX will not let you remove a non-empty directory.</p>
+<h3>Exercise 2b</h3>
+<p>Create a directory called <strong>tempstuff</strong> using <samp>mkdir</samp> 
+  , then remove it using the <samp>rmdir</samp> command.</p>
+<h2>2.4 Displaying the contents of a file on the screen </h2>
+<h3>clear (clear screen)</h3>
+<p>Before you start the next section, you may like to clear the terminal window 
+  of the previous commands so the output of the following commands can be clearly 
+  understood. </p>
+<p> At the prompt, type </p>
+<p class="command"> $ clear </p>
+<p> This will clear all text and leave you with the $ prompt at the top of the 
+  window. </p>
+<h3>cat (concatenate)</h3>
+<p>The command <samp>cat</samp> can be used to display the contents of a file 
+  on the screen. Type: </p>
+<p class="command"> $ cat poems.txt </p>
+<p> As you can see, the file is longer than than the size of the window, so it 
+  scrolls past making it unreadable. </p>
+<h3>less</h3>
+<p>The command <samp>less</samp> writes the contents of a file onto the screen 
+  a page at a time. Type </p>
+<p class="command"> $ less poems.txt</p>
+<p> Press the <samp>[space-bar]</samp> if you want to see another page, type <samp>q</samp> 
+  if you want to quit reading. As you can see, <samp>less</samp> is used in preference 
+  to <samp>cat</samp> for long files. </p>
+<h3>head</h3>
+<p>The <samp>head</samp> command writes the first ten lines of a file to the screen. 
+</p>
+<p> First clear the screen then type </p>
+<p class="command"> $ head poems.txt</p>
+<p> The command <samp> head -n</samp> will write the first <i>n</i> lines of a file to the screen. For example, to write the first 20 lines of the file poems.txt,  type </p>
+<p class="command"> $ head -20 poems.txt</p>
+<h3>tail</h3>
+<p>The <samp>tail</samp> command writes the last ten lines of a file to the screen. 
+</p>
+<p> Clear the screen and type </p>
+<p class="command"> $ tail poems.txt</p>
+<p> Like the <samp>head</samp> command, the <samp>-n</samp> option can also be specified. </p>
+<h2>2.5 Searching the contents of a file </h2>
+<h3>Simple searching using less</h3>
+<p>Using <samp>less</samp>, you can search though a text file for a keyword (pattern). 
+  For example, to search through poems.txt for the word 'women', 
+  type </p>
+<p class="command"> $ less poems.txt</p>
+<p> then, still in <samp>less</samp> (i.e. don't press <samp>q</samp> to quit), type a forward 
+  slash <samp>/</samp> followed by the word to search</p>
+<p class="command"> /women</p>
+<p> As you can see, <samp>less</samp> finds and highlights the keyword. Type <samp>n</samp> 
+  to search for the next occurrence of the word, and <samp>N</samp> to find the previous occurence of the word. </p>
+<h3>grep</h3>
+<p><samp>grep</samp> is one of many standard UNIX utilities. It searches files 
+  for specified words or patterns. First clear the screen, then type </p>
+<p class="command"> $ grep birds poems.txt</p>
+<p> As you can see, <samp>grep</samp> has printed out each line containg the word 
+  birds. </p>
+<p> Or has it???? </p>
+<p> Try typing </p>
+<p class="command"> $ grep Birds poems.txt</p>
+<p> The <samp>grep</samp> command is case sensitive; it distinguishes between 
+  Birds and birds (searching within <samp>less</samp> does as well). </p>
+<p> To ignore upper/lower case distinctions, use the -i option, i.e. type </p>
+<p class="command"> $ grep -i birds poems.txt</p>
+<p> To search for a phrase or pattern, you must enclose it in single quotes (the 
+  apostrophe symbol). For example to search for <i>little birds</i>, type </p>
+<p class="command"> $ grep -i 'little birds' poems.txt</p>
+<p> Some of the other options of grep are: </p>
+<p> -v display those lines that do NOT match <br />
+  -n precede each maching line with the line number <br />
+  -c print only the total count of matched lines <br />
+</p>
+<p> Try some of them and see the different results. Don't forget, you can use 
+  more than one option at a time, for example, the number of lines with the 
+  words beauty or Beauty is</p>
+<p class="command"> $ grep -ic beauty poems.txt</p>
+<h3>Exercise 2c</h3>
+<p> What are the line numbers of the file poems.txt that contain the phrase <i>your eyes</i>? </p> 
+<h3>wc (word count)</h3>
+<p>A handy little utility is the <samp>wc</samp> command, short for word count. 
+  To do a word count on <strong>poems.txt</strong>, type </p>
+<p class="command"> $ wc -w poems.txt</p>
+<p> To find out how many lines the file has, type </p>
+<p class="command"> $ wc -l poems.txt</p>
+
+<h2>2.6 Editing the contents of a file </h2>
+<h3>gedit</h3>
+<p>The text editor <samp>gedit</samp> is a simple text editor with a graphical user interface. The command <samp>gedit file</samp> will open a file using the <samp>gedit</samp> text editor. If the file does not exist, then invoking <samp>gedit</samp> can be used to create a new file. 
+  For example, type 
+<p class="command"> $ gedit poems.txt</p> <p>to open the poems.txt file for editing. </p>
+<h2>Summary </h2>
+<table border="1" align="center" cellpadding="3" cellspacing="0">
+  <tr> 
+    <td><code>cp <var>file1 file2</var></code></td>
+    <td>copy file1 and call it file2</td>
+  </tr>
+  <tr> 
+    <td><code>mv <var>file1 file2</var></code></td>
+    <td>move or rename file1 to file2</td>
+  </tr>
+  <tr> 
+    <td><code>rm <var>file</var></code></td>
+    <td>remove a file</td>
+  </tr>
+  <tr> 
+    <td><code>rmdir <var>directory</var></code></td>
+    <td>remove a directory</td>
+  </tr>
+  <tr> 
+    <td><code>cat <var>file</var></code></td>
+    <td>display a file</td>
+  </tr>
+  <tr> 
+    <td><code>more <var>file</var></code></td>
+    <td>display a file a page at a time</td>
+  </tr>
+  <tr> 
+    <td><code>head <var>file</var></code></td>
+    <td>display the first few lines of a file</td>
+  </tr>
+  <tr> 
+    <td><code>tail <var>file</var></code></td>
+    <td>display the last few lines of a file</td>
+  </tr>
+  <tr> 
+    <td><code>grep <var>'keyword' file</var></code></td>
+    <td>search a file for keywords</td>
+  </tr>
+  <tr> 
+    <td><code>wc <var>file</var></code></td>
+    <td>count number of lines/words/characters in file</td>
+  </tr>
+  <tr>
+    <td><code>gedit <var>file</var></code</td>
+    <td>open a file in a simple text editor</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p class="navbar"><a href="unix1.html"><img src="media/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="media/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="unix3.html"><img src="media/right.gif" alt="Next" width="37" height="39" border="0" /></a> 
+</p>
+<p class="date">Last Modified: August 2015 </p>
+</body>
+</html>
