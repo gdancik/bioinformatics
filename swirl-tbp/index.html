@@ -52,24 +52,30 @@ Lessons with template-based practice problems are created in the same way as reg
       Output: Create a vector named &#39;values&#39; that holds the values &lt;num1&gt; and &lt;num2&gt;.
       CorrectAnswer: values &lt;- c(&lt;num1&gt;,&lt;num2&gt;)
       AnswerTests: omnitest(correctExpr=&#39;values &lt;- c(&lt;num1&gt;,&lt;num2&gt;)&#39;)
-      HintFunction: createVectorHint
+      HintFunction: createVectorHint()
 </pre></code>
 
 <p> The main addition is that a <i>Token</i> line is specified which uses <i>R</i> code to dynamically generate tokens (values). Elsewhere in the YAML file, these tokens are surrounded by angle brackets (e.g., <i>&lt;num1&gt;</i>) and will be replaced by their values when the lesson is run. </p> 
 
-<p>For example, the above segment generates a question of the form &#39;Create a vector named *values* that holds the values <i>num1</i> and <i>num2</i>, where <i>num1</i> will be a random integer between 1 and 10 and <i>num2</i> a random integer between 11 and 20.</p> 
+<p>For example, the above segment generates a question of the form &#39;Create a vector named <i>values</i> that holds the values <i>num1</i> and <i>num2</i>&#39;, where <i>num1</i> will be a random integer between 1 and 10 and <i>num2</i> a random integer between 11 and 20.</p> 
 
-<p>Note that in the <i>Token</i> line above, the vertical line (|) is necessary to indicate that the <i>R</i> code spans multiple lines. Each line must begin with a number of blank spaces, as tabs are not allowed in YAML files. Alternatively, the *R* code can be specified on a single line with statements separated by semi-colons. </p> 
+<p>Note that in the <i>Token</i> line above, the vertical line (|) is necessary to indicate that the <i>R</i> code spans multiple lines. Each line must begin with a number of blank spaces, as tabs are not allowed in YAML files. Alternatively, the <i>R</i> code can be specified on a single line with statements separated by semi-colons. </p> 
 
 <p>A developer can also provide a <i>NumTimes</i> value. When a lesson is run, the question will be repeated (using dynamically generated values) the specified number of times (if not specified, <i>NumTimes</i> defaults to 1).</p>
 
-<p>The HintFunction specifies the name of a function that can be used to provide tailored hints based on the student&#39;s answer. See the lesson.yaml and accompanying initLesson.R files for an example.</p> 
+<p>The HintFunction specifies a function call that can be used to provide tailored hints based on the student&#39;s answer. 
 
-An example lesson.yaml file is provided in the  &#39;Template_Based_Practice_Problems&#39; directory.
+See the lesson.yaml and accompanying initLesson.R files in the <a href = "https://github.com/gdancik/swirl-tbp/tree/swirl-tbp_example/">examples</a>.</p> 
 
 <h3> Contributors </h3>
 <ul>
-<li>Main contributor: Garrett Dancik </li>
+<li>Main contributor: Garrett Dancik (send questions/comments to 
+ <script language="JavaScript">
+var user = "dancikg";
+var at = "easternct.edu";
+var linktext = user + "@" + at ;
+document.write("<a href='" + "mail" + "to:" + user + "@" + at + "?subject=swirl-tbp question'>" + linktext + "</a>");
+</script>)</li>
 <li>Additional contributors: Kyle Marrotte, Ryan Shooner, Sarah Fuller </li>
 </ul>
 <h3> Acknowledgements </h3>
