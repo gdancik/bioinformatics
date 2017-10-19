@@ -1,0 +1,78 @@
+<body>
+
+<head>
+<style>
+h1,h2 {color:white;
+       background-color:darkred}
+h3 {color:black; background-color:#CCF}
+
+a {color: darkblue};
+a:visited {color:maroon}
+a:hover {color:darkblue}
+</style>
+</head>
+
+<body>
+
+<h2><i>swirl-tbp</i>: template-based practice problems in <i>swirl</i></h2>
+<p>The <i>swirl-tbp</i> extension introduces <i>template-based practice</i> problems to the <i>swirl</i> framework. The base <i>swirl</i> package is described at <a href = "http://swirlstats.com">http://swirlstats.com</a>.
+Specifically, <i>swirl-tbp</i> extends <i>swirl</i> by allowing instructors to include template-based problems in <i>swirl</i> lessons. Template-based problems are problems that include numbers, variable names, or other features that are randomly generated at run-time. As a result, a user can be provided with an endless supply of practice problems that differ, e.g., with respect to the numbers used. This allows users to repeatedly practice problems in order to reinforce concepts and practice their problem-solving skills. 
+<h3 id="instructions">Instructions</h3>
+<ol style="list-style-type: decimal">
+<li>Install the <i>swirl</i> package by typing the following from within <i>R</i>:</li>
+<pre>
+# install the devtools package, if necessary
+install.packages("devtools")
+
+# install swirl-tbp 
+library(devtools)
+install_github("gdancik/swirl-tbp")
+</pre>
+<li> Optionally, install example lessons by typing the following: </li>
+<pre>
+library(swirl)
+install_course_github("gdancik", "swirl-tbp", "swirl-tbp_example")
+</pre>
+<li> Lessons are run in the same fashion as standard <i>swirl</i> lessons. However, at any time the student can type <i>rpt()</i> to repeat the previous question (with different dynamic values), if desired. To begin <i>swirl</i>, type the following from within <i>R</i>:</li>
+<pre>
+library(swirl)
+swirl()
+</pre>
+</ol>
+
+<h3> Creating lessons </h3> 
+Lessons with template-based practice problems are created in the same way as regular <i>swirl</i> lessons, but <i>tokens</i> are used to store dynamic <i>R</i> objects and values, and questions can be repeated multiple times. This is best illustrated by looking at an example block from the YAML file: 
+
+<pre><code>
+    - Class: cmd_question
+      NumTimes: 2
+      Token: |
+        num1 = sample(1:10)
+        num2 = sample(11:20)
+      Output: Create a vector named &#39;values&#39; that holds the values &lt;num1&gt; and &lt;num2&gt;.
+      CorrectAnswer: values &lt;- c(&lt;num1&gt;,&lt;num2&gt;)
+      AnswerTests: omnitest(correctExpr=&#39;values &lt;- c(&lt;num1&gt;,&lt;num2&gt;)&#39;)
+      HintFunction: createVectorHint
+</pre></code>
+
+<p> The main addition is that a <i>Token</i> line is specified which uses <i>R</i> code to dynamically generate tokens (values). Elsewhere in the YAML file, these tokens are surrounded by angle brackets (e.g., <i>&lt;num1&gt;</i>) and will be replaced by their values when the lesson is run. </p> 
+
+<p>For example, the above segment generates a question of the form &#39;Create a vector named *values* that holds the values <i>num1</i> and <i>num2</i>, where <i>num1</i> will be a random integer between 1 and 10 and <i>num2</i> a random integer between 11 and 20.</p> 
+
+<p>Note that in the <i>Token</i> line above, the vertical line (|) is necessary to indicate that the <i>R</i> code spans multiple lines. Each line must begin with a number of blank spaces, as tabs are not allowed in YAML files. Alternatively, the *R* code can be specified on a single line with statements separated by semi-colons. </p> 
+
+<p>A developer can also provide a <i>NumTimes</i> value. When a lesson is run, the question will be repeated (using dynamically generated values) the specified number of times (if not specified, <i>NumTimes</i> defaults to 1).</p>
+
+<p>The HintFunction specifies the name of a function that can be used to provide tailored hints based on the student&#39;s answer. See the lesson.yaml and accompanying initLesson.R files for an example.</p> 
+
+An example lesson.yaml file is provided in the  &#39;Template_Based_Practice_Problems&#39; directory.
+
+<h3> Contributors </h3>
+<ul>
+<li>Main contributor: Garrett Dancik </li>
+<li>Additional contributors: Kyle Marrotte, Ryan Shooner, Sarah Fuller </li>
+</ul>
+<h3> Acknowledgements </h3>
+KM, RS, and SF contributed as part of an independent study in Computer Science at Eastern Connecticut State University, Willimantic, CT,  USA.
+
+</body>
