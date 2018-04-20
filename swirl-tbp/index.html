@@ -26,7 +26,7 @@ install.packages("devtools")
 
 # install swirl-tbp 
 library(devtools)
-install_github("gdancik/swirl-tbp")
+install_github("gdancik/swirl-tbp", ref = "assign")
 </pre>
 <li> Optionally, install example lessons by typing the following: </li>
 <pre>
@@ -66,6 +66,23 @@ Lessons with template-based practice problems are created in the same way as reg
 <p>The HintFunction specifies a function call that can be used to provide tailored hints based on the student&#39;s answer. 
 
 See the lesson.yaml and accompanying initLesson.R files in the <a href = "https://github.com/gdancik/swirl-tbp/tree/swirl-tbp_example/">examples</a>.</p> 
+
+<h3 id="autograde">Creating and grading assignments</h3>
+<ol>
+<li> Create a swirl "lesson", optionally with templates, by following the instructions above. </li></br>
+
+<li> Type the following code to create the assignment 
+<pre><code>
+createAssignment("lesson.yaml", "directory", "assignment.R")
+</pre></code> 
+where "lesson.yaml" is the name (and path) to the yaml file containing the lesson, "directory" is the (path and) name of the directory where the assignment should be saved, and "assignment.R" is the name of the assignment. Three directories will be created, "instr" containing the assignment and the yaml file in a csv format, "submissions" where student submissions can be stored, and "feedback" where student reports will be generated.</li></br>
+<li> After an assignment has been completed and moved to the "submissions" folder, the following command will grade the assignment:
+<pre><code>
+gradeAssignment("directory")
+</pre></code>
+where "directory" is the directory created by the "createAssignment" function. 
+Graded assignments are stored in the "feedback" folder, in the form of an html document.</li> 
+</ol>
 
 <h3> Contributors </h3>
 <ul>
