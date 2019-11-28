@@ -1,5 +1,7 @@
 <html>
 <head>
+    
+    <script src="msg.js"></script>
 
 <style>
 h1,h2 {color:white;
@@ -29,14 +31,11 @@ Rapid evaluation of candidate diagnostic and prognostic gene expression biomarke
 <h3> Citation </h3>
 <b>Please cite:</b> Dancik, G.M. An online tool for evaluating diagnostic and prognostic gene expression biomarkers in bladder cancer. <i>BMC Urol</i> 2015, <b>15</b>:59. </p>
 
-<h3> Usage and availability </h3>
-<ul> 
-<!-- <li> The gene expression biomarker analysis is currently undergoing maintenance. It will be back shortly. </li> -->
- <li> Analysis of <b>gene <i> expression</i> biomarkers</b> using <i> BC-BET</i> is available at the following link: <a href = "http://bioinformatics.easternct.edu/BCBET2/"> http://bioinformatics.easternct.edu/BCBET2/</a></li> 
-<!-- <li> Analysis of gene <i> methylation</i> biomarkers using <i> BC-BET</i> is available at the following link: <a href = "https://gdancik.shinyapps.io/BCBET-methyl/"> https://gdancik.shinyapps.io/BCBET-methyl/</a></li> -->
-<li> Analysis of <b> gene <i> methylation</i> biomarkers</b> using <i> BC-BET</i> is available at the following link: <a href = "http://bioinformatics.easternct.edu/BCBET-Methyl/"> http://bioinformatics.easternct.edu/BCBET-Methyl/</a></li> 
-</ul>
-<!--<b> Note: BC-BET is currently undergoing maintenance, and is expected to be available again on 8/15/16.</b> -->
+<h2> Usage and availability </h2>
+
+<div id = 'msg'> </div>
+
+
 <p> 
 <h3> Credits </h3>
 <ul>
@@ -57,6 +56,12 @@ Rapid evaluation of candidate diagnostic and prognostic gene expression biomarke
   ga('send', 'pageview');
 
 </script>
+
+
+    <script>
+        document.getElementById('msg').innerHTML = msgBCBET;
+    </script>
+
 
 </body></html>
 

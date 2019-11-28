@@ -1,5 +1,6 @@
 <html>
 <head>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62826724-4"></script>
     <script>
@@ -10,6 +11,7 @@
         gtag('config', 'UA-62826724-4');
     </script>
 
+    <script src="../msg.js"></script>
 
 <style>
 h1,h2 {color:white;
@@ -33,24 +35,11 @@ a:hover {color:darkblue}
     <li> What tumor mutations are associated with EGFR and erlotinib?</li>
 </ul>
 Following a search, users can create a <a href = "https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator/">PubTator</a> collection for article viewing and curation. 
-
 </p> 
-</br>
 <h2> Availability</h2>
 
-<span> Due to a university wide web server reboot, <i>CPP</i> is temporarily unavailable. We apologize
-for the inconvenience and expect <i>CPP</i> to be available again shortly.
-</span>
+<p id = 'msg'> </p>
 
-<!---
-
-<i>CPP</i> is available from 
-<a href = "http://bioinformatics.easternct.edu/app/CPP/">http://bioinformatics.easternct.edu/app/CPP/</a>
---->
-
-</br>
-
-</br>
 
 <h3> Source code </h3>
 Source code for the web interface is available from: <a href = "https://github.com/gdancik/CPP/">https://github.com/gdancik/CPP/</a>.
@@ -58,6 +47,11 @@ Source code for the web interface is available from: <a href = "https://github.c
 <h3> Site navigation </h3>
 <a href = "/bioinformatics">Lab Home</a> | <a href = "/bioinformatics/software.html">Software</a>  | 
 <a href = "http://www1.easternct.edu/dancikg"> Faculty Page </a>
+
+    <script>
+        document.getElementById('msg').innerHTML = msgCPP;
+    </script>
+
 
 </body></html>
 
