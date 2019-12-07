@@ -1,6 +1,6 @@
 
 down = false;
-down = true;
+//down = true;
 
 msgCPP = '<i>CPP</i> is available from <a href = "http://bioinformatics.easternct.edu/app/CPP/">http://bioinformatics.easternct.edu/app/CPP/</a>';
 
