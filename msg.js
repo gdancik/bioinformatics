@@ -2,7 +2,7 @@
 down = false;
 //down = true;
 
-msgCPP = '<i>CPP</i> is available from <a href = "http://bioinformatics.easternct.edu/app/CPP/">http://bioinformatics.easternct.edu/app/CPP/</a>';
+msgCPP = '<i>CPP</i> is available from <a href = "https://bioinformatics.easternct.edu/app/CPP/">https://bioinformatics.easternct.edu/app/CPP/</a>';
 
 msgBCBET = '<ul>' + 
  '<li> Analysis of <b>gene <i> expression</i> biomarkers</b> using <i> BC-BET</i> is available at the following link: <a href = "http://bioinformatics.easternct.edu/BCBET2/"> http://bioinformatics.easternct.edu/BCBET2/</a></li>' + 
